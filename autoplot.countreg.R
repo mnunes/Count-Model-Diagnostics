@@ -1,7 +1,7 @@
 require(countreg)
 require(ggplot2)
 
-autoplot.countreg <- function(object){
+autoplot.countreg <- function(object, legend.position="left"){
   
   ###########
   # rootogram
@@ -9,8 +9,8 @@ autoplot.countreg <- function(object){
   rootogram.plot <- rootogram(object, style = "hanging", plot = FALSE)
   
   g1 <- autoplot(rootogram.plot) +
-    #labs(x=all.vars(object$formula)[1], y=expression(sqrt(Frequency)))
-    labs(x="Counts", y=expression(sqrt(Frequency)))
+    labs(x=all.vars(object$formula)[1], y=expression(sqrt(Frequency)))
+  #labs(x="Counts", y=expression(sqrt(Frequency)))
   
   
   
@@ -39,26 +39,33 @@ autoplot.countreg <- function(object){
                                   y=c(expected.observed$observed, expected.observed$expected),
                                   group=factor(c(rep("Observed", length(expected.observed$observed)), rep("Expected", length(expected.observed$expected))), levels=c("Observed", "Expected")))
   
+  
+  # legend justification and position
+  
+  jus <- c(1, 1)
+  pos <- c(0.95, 0.95)
+  if (legend.position=="left"){
+    jus <- c(0, 1)
+    pos <- c(0.05, 0.95)
+  }
+  
   g3 <- ggplot(expected.observed[expected.observed$x <= 20, ], aes(x=x, y=y, fill=group)) +
     geom_col(position = "dodge") +
     labs(x="Counts", y="Frequency", fill="") +
     scale_fill_grey() +
-    theme(legend.justification=c(1, 1), legend.position=c(0.95, 0.95))
+    theme(legend.justification=jus, legend.position=pos, legend.background=element_blank())
   
   ####################################
   # pearson residuals vs fitted values
   
   g4 <- ggplot(data.frame(x=object$fitted.values, 
-                    y=residuals(object, type="pearson")), 
-         aes(x=x, y=y)) +
+                          y=residuals(object, type="pearson")), 
+               aes(x=x, y=y)) +
     geom_point() +
     labs(x="Fitted Values", y="Pearson Residuals")
   
   # combine all plots in one grid
   
-  grid.arrange(g1, g2, g3, g4)
+  gridExtra::grid.arrange(g1, g2, g3, g4)
   
 }
-
-
-
