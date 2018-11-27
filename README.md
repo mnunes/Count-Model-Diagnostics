@@ -2,15 +2,15 @@
 
 ## Introduction
 
-The function `autoplot.countreg.R` uses some functions from package `countreg` to create diagnostics plots for count models. Four plots are created in order to check the model assumptions. `ggplot2` is used to make the plots have a similar look and feel.
+This repository introduces `autoplot.countreg.R` function for `R`. It uses resources from package `countreg` to create diagnostics plots for count data regression models. Four plots are created in order to check the model assumptions: rootogram, QQ plot, expected and observed values, and Pearson Residuals versus Fitted Values. All the plots are created using `ggplot2`, which gives them a similar look and feel.
 
-Therefore, `autoplot.countreg.R` function depends on both `countreg` and `ggplot2` packages.
+`autoplot.countreg.R` function depends on both `countreg` and `ggplot2` packages.
 
 ## Usage
 
-Download `autoplot.countreg.R` and put it in the same folder your analysis is. Run `source(autoplot.countreg.R)` to load the function and the packages needed in your environment. 
+Save `autoplot.countreg.R` in the same folder where is your analysis code. Run `source(autoplot.countreg.R)` to load the function and the needed packages in your environment. 
 
-Run the code below to make a reproducible example.
+The folloing code shows how you can check the residuals of a Poisson regression.
 
     source(autoplot.countreg.R)
     library(MASS)
@@ -27,6 +27,9 @@ Run the code below to make a reproducible example.
     
 ![alt text](Rplot.png)
 
+Analogue codes will work with functions `glm.nb`, `hurdle`, and `zeroinfl`.
+
+
 ## References
 
-Kleiber, C. and Zeileis, A. (2016), "Visualizing Count Data Regressions Using Rootograms", _The American Statistician_, **70** (6) 296-303. URL: [https://www.tandfonline.com/doi/ref/10.1080/00031305.2016.1173590?scroll=top](https://www.tandfonline.com/doi/ref/10.1080/00031305.2016.1173590?scroll=top)
+Kleiber, C. and Zeileis, A. (2016), "Visualizing Count Data Regressions Using Rootograms", _The American Statistician_, **70** (6) 296-303. URL: [https://www.tandfonline.com/doi/ref/10.1080/00031305.2016.1173590](https://www.tandfonline.com/doi/ref/10.1080/00031305.2016.1173590)
