@@ -4,7 +4,7 @@
 
 This repository introduces `autoplot.countreg.R` function for `R`. It uses resources from package `countreg` to create diagnostics plots for count data regression models. Four plots are created in order to check the model assumptions: rootogram, QQ plot, expected and observed values, and Pearson Residuals versus Fitted Values. All the plots are created using `ggplot2`, which gives them a similar look and feel.
 
-`autoplot.countreg.R` function depends on both `countreg` and `ggplot2` packages.
+`autoplot.countreg.R` function depends on `countreg`, `ggplot2`, and `gridExtra` packages.
 
 ## Usage
 
