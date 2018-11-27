@@ -2,11 +2,15 @@
 
 ## Introduction
 
-The function `autoplot.countreg.R` uses results from package `countreg` to create diagnostics plots for count models. This function depends on `countreg` and `ggplot2` packages.
+The function `autoplot.countreg.R` uses some functions from package `countreg` to create diagnostics plots for count models. Four plots are created in order to check the model assumptions. `ggplot2` is used to make the plots have a similar look and feel.
+
+Therefore, `autoplot.countreg.R` function depends on both `countreg` and `ggplot2` packages.
 
 ## Usage
 
-Put file `autoplot.countreg.R` and the code for your analysis in the folder. Run `source(autoplot.countreg.R)` to load the function in your environment. Below you can find an example on how to use the function.
+Download `autoplot.countreg.R` and put it in the same folder your analysis is. Run `source(autoplot.countreg.R)` to load the function and the packages needed in your environment. 
+
+Run the code below to make a reproducible example.
 
     source(autoplot.countreg.R)
     library(MASS)
