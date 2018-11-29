@@ -10,7 +10,7 @@ This repository introduces `autoplot.countreg.R` function for `R`. It uses resou
 
 Save `autoplot.countreg.R` in the same folder where is your analysis code. Run `source(autoplot.countreg.R)` to load the function and the needed packages in your environment. 
 
-The folloing code shows how you can check the residuals of a Poisson regression.
+The following code shows how you can check the residuals of a Poisson regression.
 
     source(autoplot.countreg.R)
     library(MASS)
